@@ -1,6 +1,6 @@
 import TaskItem from "./TaskItem";
 
-function TaskList({ tasks }) {
+function TaskList({ tasks, onToggleComplete, onDeleteTask, onEditTask }) {
   if (tasks.length === 0) {
     return (
       <div className="rounded-xl bg-gradient-to-br from-slate-50 to-blue-50 py-20 text-center">
@@ -19,7 +19,13 @@ function TaskList({ tasks }) {
   return (
     <div className="space-y-4">
       {tasks.map((task) => (
-        <TaskItem key={task.id} task={task} />
+        <TaskItem
+          key={task.id}
+          task={task}
+          onToggleComplete={onToggleComplete}
+          onDeleteTask={onDeleteTask}
+          onEditTask={onEditTask}
+        />
       ))}
     </div>
   );
